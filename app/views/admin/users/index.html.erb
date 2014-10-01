@@ -3,6 +3,12 @@
 <%= paginate @users %>
 
 <table style="width:50%">
+  <tr>
+    <th>Fullname</th>
+    <th>Email</th>
+    <th>Created Date</th>
+    <th>Admin?</th>
+  </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.full_name %></td>
