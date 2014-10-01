@@ -1,5 +1,5 @@
-<h1>Sign up</h1>
-<%= form_for @user do |f| %>
+<h1>Create New User</h1>
+<%= form_for [:admin,@user] do |f| %>
   <% if @user.errors.any? %>
     <div>
       <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
@@ -30,24 +30,9 @@
     <%= f.label "password_confirmation" %><br>
     <%= f.password_field "password_confirmation" %>
   </div>
-  <% if current_user.is_admin %>
-    <div> 
-      <%= f.label "is_admin" %><br>
-      <%= f.check_box "is_admin" %>
-    </div>
-  <% end %>
+  <div> 
+    <%= f.label "is_admin" %><br>
+    <%= f.check_box "is_admin" %>
+  </div>
   <div><%= f.submit "Submit" %></div>
-<% end %>
-
-<h1>Log In</h1>
-<%= form_tag sessions_path do %>
-  <div>
-    <%= label_tag "email" %><br/>
-    <%= text_field_tag "email" %>
-  </div>
-  <div>
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
-  </div>
-  <div><%= submit_tag "Log In" %></div>
 <% end %>
