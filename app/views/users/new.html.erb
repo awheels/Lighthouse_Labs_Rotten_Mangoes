@@ -30,12 +30,6 @@
     <%= f.label "password_confirmation" %><br>
     <%= f.password_field "password_confirmation" %>
   </div>
-  <% if current_user.is_admin %>
-    <div> 
-      <%= f.label "is_admin" %><br>
-      <%= f.check_box "is_admin" %>
-    </div>
-  <% end %>
   <div><%= f.submit "Submit" %></div>
 <% end %>
 

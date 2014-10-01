@@ -5,13 +5,15 @@
 <%= link_to "Create a new user.", new_admin_user_path %>
 
 
-<table style="width:60%">
+<table style="width:75%">
   <tr>
     <th>Fullname</th>
     <th>Email</th>
     <th>Created Date</th>
     <th>Admin?</th>
     <th>Edit User</th>
+    <th>Delete User</th>
+
   </tr>
 
   <% @users.each do |user| %>
@@ -20,7 +22,16 @@
       <td><%= user.email %></td>
       <td><%= user.created_at %></td>
       <td><%= user.is_admin %></td>
-      <td><%= link_to "edit", edit_admin_user_path(user) %></td>
+      <td>
+        <%= form_tag(edit_admin_user_path(user), method: "get") do %>
+          <%= submit_tag("Edit")%>
+        <% end %>
+      </td>
+      <td>
+        <%= form_tag(admin_user_path(user), method: "delete") do %>
+          <%= submit_tag("Delete")%>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 
