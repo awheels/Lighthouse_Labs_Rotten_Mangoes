@@ -1,0 +1,8 @@
+<h3>Hello <%= User.find(session[:user_id]).full_name %>!</h3>
+
+<h5>List of movies reviewd by <%= User.find(session[:user_id]).full_name %></h5>
+<% User.find(session[:user_id]).reviews.each do |review| %>
+  <p>Title: <%= link_to Movie.find(review.movie_id).title, movie_path(review.movie_id)%> | Average Review: <%= Movie.find(review.movie_id).review_average%></p>
+<% end %>
+
+

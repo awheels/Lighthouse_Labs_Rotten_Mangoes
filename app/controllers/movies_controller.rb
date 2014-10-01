@@ -6,8 +6,7 @@ class MoviesController < ApplicationController
       when "title"
         @movies = Movie.order(:title)
       when "averagerating" 
-        @movies = Movie.all.select{|movie| movie.reviews.count != 0}
-        @movies = @movies.sort{|x,y| y.review_average <=> x.review_average}
+        @movies = Movie.all.sort{|x,y| (y.review_average || 0) <=> (x.review_average || 0)}
       else 
         @movies = Movie.all
     end
