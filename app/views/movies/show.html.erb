@@ -4,6 +4,7 @@
 <h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %> <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</h2>
 <h3><%= formatted_date(@movie.release_date) %></h3>
 <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes </h4>
+<p><%= @movie.genre %></p>
 <p><%= @movie.review_average %>/10</p>
 <p><%= @movie.description %></p>
 

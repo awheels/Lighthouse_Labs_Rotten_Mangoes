@@ -1,6 +1,16 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    case params[:sort]
+      when "newest"
+        @movies = Movie.order(:created_at)
+      when "title"
+        @movies = Movie.order(:title)
+      when "averagerating" 
+        @movies = Movie.all.select{|movie| movie.reviews.count != 0}
+        @movies = @movies.sort{|x,y| y.review_average <=> x.review_average}
+      else 
+        @movies = Movie.all
+    end
   end
 
   def show
@@ -45,7 +55,7 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(
-      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description
+      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description, :genre
     )
   end
 end
