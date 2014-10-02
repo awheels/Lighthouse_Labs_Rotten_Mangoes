@@ -6,6 +6,12 @@
 <%= link_to "Title", movies_path(sort: "title") %>
 <%= link_to "Newest", movies_path(sort: "newest") %>
 
+<%= form_tag("/movies", method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Title or Director"%>
+  <%= select_tag(:duration, options_for_select([["Under 90 minutes", 1],["Between 90 and 120 minutes",2],["Over 120 minutes", 3]]), include_blank: true) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 
 <hr>
 <% @movies.each do |movie| %>
@@ -17,6 +23,5 @@
   <p><%= movie.genre %></p>
   <p><%= movie.review_average %>/10</p>
   <p><%= movie.description %></p>
-
   <hr>
 <% end %>
