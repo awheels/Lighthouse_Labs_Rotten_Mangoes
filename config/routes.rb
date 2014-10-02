@@ -1,5 +1,6 @@
 RottenMangoes::Application.routes.draw do
 
+
   # get 'reviews/new'
 
   # get 'reviews/create'
@@ -14,11 +15,17 @@ RottenMangoes::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
   root to: 'movies#index'
  
   namespace :admin do
-    resources :users
+    resources :users 
   end
+
+  namespace :admin do
+    resources :ghosts, only: [:new, :create, :destroy] 
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

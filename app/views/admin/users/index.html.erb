@@ -13,6 +13,7 @@
     <th>Admin?</th>
     <th>Edit User</th>
     <th>Delete User</th>
+    <th>Switch to User</th>
 
   </tr>
 
@@ -30,6 +31,12 @@
       <td>
         <%= form_tag(admin_user_path(user), method: "delete") do %>
           <%= submit_tag("Delete")%>
+        <% end %>
+      </td>
+      <td>
+        <%= form_tag(admin_ghosts_path, method: :post) do %>
+          <%= hidden_field_tag "user_id", user.id %>
+          <%= submit_tag("Switch to User")%>
         <% end %>
       </td>
     </tr>

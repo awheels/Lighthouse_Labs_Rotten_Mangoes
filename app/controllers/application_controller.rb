@@ -20,7 +20,11 @@ class ApplicationController < ActionController::Base
     current_user.is_admin == True
   end
 
-  helper_method :current_user
+  def ghost_user
+    @ghost_user ||= User.find(session[:ghost_user_id]) if session[:ghost_user_id]
+  end
+
+  helper_method :current_user, :ghost_user, :currently_impersonating?
 
 
 end
