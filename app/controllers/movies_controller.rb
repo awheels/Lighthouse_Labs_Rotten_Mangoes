@@ -12,17 +12,17 @@ class MoviesController < ApplicationController
           @movies = Movie.all
       end
     elsif params[:search] && params[:duration]
-      s = "%#{params[:search]}%"
-      if s && params[:duration].empty?
-        @movies = Movie.where("title like ? or director like ?", s, s)
-      elsif s && params[:duration]
+      search_query = "%#{params[:search]}%"
+      if search_query && params[:duration].empty?
+        @movies = Movie.title_and_director(search_query)
+      elsif search_query && params[:duration]
         if params[:duration].to_i == 1
           puts "why is it running into nil"
-          @movies = Movie.where("title like ? or director like ?", s, s).where("runtime_in_minutes < ?", 90)
+          @movies = Movie.title_and_director(search_query).runtime_less_than_90_min
         elsif params[:duration].to_i == 2
-          @movies = Movie.where("title like ? or director like ?", s, s).where(runtime_in_minutes: 90..120)
+          @movies = Movie.title_and_director(search_query).runtime_between_90_and_120_min
         elsif params[:duration].to_i == 3
-          @movies = Movie.where("title like ? or director like ?", s, s).where("runtime_in_minutes > ?", 120)
+          @movies = Movie.title_and_director(search_query).runtime_greater_than_120_min
         end
       end
     else
