@@ -1,7 +1,9 @@
 <div class = "container">
   <div class = "row" id = "search-filter-box">
       
-      <p> Hi <%= current_user.full_name%>! Search for your movie.</p>
+      <% if current_user%>
+        <p> Hi <%= current_user.full_name%>! Search for your movie.</p>
+      <% end %> 
 
       <%= form_tag("/movies", method: "get") do %>
         <div><%= text_field_tag :search, params[:search], placeholder: "Title or Director"%>
