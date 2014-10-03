@@ -1,46 +1,44 @@
-<h1>Users</h1>
+<div id = "admin-management-box">
+  <h1>Admin Management - User Index</h1>
 
-<%= paginate @users %>
+  <%= paginate @users %>
 
-<%= link_to "Create a new user.", new_admin_user_path %>
+  <%= link_to "Create a new user.", new_admin_user_path %>
 
-
-<table style="width:75%">
-  <tr>
-    <th>Fullname</th>
-    <th>Email</th>
-    <th>Created Date</th>
-    <th>Admin?</th>
-    <th>Edit User</th>
-    <th>Delete User</th>
-    <th>Switch to User</th>
-
-  </tr>
-
-  <% @users.each do |user| %>
+  <table class = "users-table" style="width:100%">
     <tr>
-      <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.is_admin %></td>
-      <td>
-        <%= form_tag(edit_admin_user_path(user), method: "get") do %>
-          <%= submit_tag("Edit")%>
-        <% end %>
-      </td>
-      <td>
-        <%= form_tag(admin_user_path(user), method: "delete") do %>
-          <%= submit_tag("Delete")%>
-        <% end %>
-      </td>
-      <td>
-        <%= form_tag(admin_ghosts_path, method: :post) do %>
-          <%= hidden_field_tag "user_id", user.id %>
-          <%= submit_tag("Switch to User")%>
-        <% end %>
-      </td>
+      <th>Fullname</th>
+      <th>Email</th>
+      <th>Created Date</th>
+      <th>Admin?</th>
+      <th>Edit User</th>
+      <th>Delete User</th>
+      <th>Switch to User</th>
     </tr>
-  <% end %>
 
-</table>
-<br>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.is_admin %></td>
+        <td>
+          <%= form_tag(edit_admin_user_path(user), method: "get") do %>
+            <%= submit_tag("Edit")%>
+          <% end %>
+        </td>
+        <td>
+          <%= form_tag(admin_user_path(user), method: "delete") do %>
+            <%= submit_tag("Delete")%>
+          <% end %>
+        </td>
+        <td>
+          <%= form_tag(admin_ghosts_path, method: :post) do %>
+            <%= hidden_field_tag "user_id", user.id %>
+            <%= submit_tag("Switch to User")%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

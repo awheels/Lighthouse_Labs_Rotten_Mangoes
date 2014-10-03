@@ -1,47 +1,47 @@
-<%= form_for @movie, :html => {:multipart => true} do |f| %>
-  <% if @movie.errors.any? %>
+  <%= form_for @movie, :html => {:multipart => true} do |f| %>
+    <% if @movie.errors.any? %>
+      <div>
+        <%= pluralize(@movie.errors.count, "error") %> prevented this movie from being submitted:
+        <ul>
+          <% @movie.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %> 
     <div>
-      <%= pluralize(@movie.errors.count, "error") %> prevented this movie from being submitted:
-      <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+      <%= f.label "title" %><br>
+      <%= f.text_field "title", class:'form-control'%>
     </div>
-  <% end %> 
-  <div>
-    <%= f.label "title" %><br>
-    <%= f.text_field "title" %>
-  </div>
-  <div>
-    <%= f.label "release_date" %><br>
-    <%= f.date_field "release_date" %>
-  </div>
-  <div>
-    <%= f.label "director" %><br>
-    <%= f.text_field "director" %>
-  </div>
-  <div>
-    <%= f.label "runtime_in_minutes" %><br>
-    <%= f.number_field "runtime_in_minutes" %>
-  </div>
-  <div>
-    <%= f.label "image" %><br>
-    <%= f.file_field "image" %>
-  </div>
-  <div>
-    <%= f.label "remote_image_url","or Image URL" %><br>
-    <%= f.text_field "remote_image_url" %>
-  </div>  
-  <div>
-    <%= f.label "genre" %><br>
-    <%= f.text_field "genre" %>
-  </div>
-  <div>
-    <%= f.label "description" %><br>
-    <%= f.text_field "description" %>
-  </div> 
-  <div>
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+    <div>
+      <%= f.label "release_date" %><br>
+      <%= f.date_field "release_date",class:'form-control' %>
+    </div>
+    <div>
+      <%= f.label "director" %><br>
+      <%= f.text_field "director",class:'form-control' %>
+    </div>
+    <div>
+      <%= f.label "runtime_in_minutes" %><br>
+      <%= f.number_field "runtime_in_minutes",class:'form-control' %>
+    </div>
+    <div>
+      <%= f.label "image" %><br>
+      <%= f.file_field "image",class:'form-control' %>
+    </div>
+    <div>
+      <%= f.label "remote_image_url","or Image URL" %><br>
+      <%= f.text_field "remote_image_url",class:'form-control' %>
+    </div>  
+    <div>
+      <%= f.label "genre" %><br>
+      <%= f.text_field "genre",class:'form-control' %>
+    </div>
+    <div>
+      <%= f.label "description" %><br>
+      <%= f.text_field "description",class:'form-control' %>
+    </div> 
+    <div>
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>

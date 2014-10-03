@@ -1,47 +1,39 @@
-<h1>Sign up</h1>
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div>
-      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
-      <ul>
-        <% @user.errors.full_message.each do |msg| %>
-          <li><%= msg %></li>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-4 col-md-offset-1">  
+      <h1>  Sign up</h1>
+      <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div>
+          <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+          <ul>
+            <% @user.errors.full_message.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
-    <%= f.label "email" %><br>
-    <%= f.text_field "email" %>
+        <div>
+          <%= f.label "email" %><br>
+          <%= f.text_field "email" %>
+        </div>
+        <div>
+          <%= f.label "firstname" %><br>
+          <%= f.text_field "firstname" %>
+        </div>
+        <div>
+          <%= f.label "lastname" %><br>
+          <%= f.text_field "lastname" %>
+        </div>
+        <div>
+          <%= f.label "password" %><br>
+          <%= f.password_field "password" %>
+        </div>
+        <div> 
+          <%= f.label "password_confirmation" %><br>
+          <%= f.password_field "password_confirmation" %>
+        </div>
+        <div><%= f.submit "Submit" %></div>
+      <% end %>
   </div>
-  <div>
-    <%= f.label "firstname" %><br>
-    <%= f.text_field "firstname" %>
-  </div>
-  <div>
-    <%= f.label "lastname" %><br>
-    <%= f.text_field "lastname" %>
-  </div>
-  <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password" %>
-  </div>
-  <div> 
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-  <div><%= f.submit "Submit" %></div>
-<% end %>
-
-<h1>Log In</h1>
-<%= form_tag session_path do %>
-  <div>
-    <%= label_tag "email" %><br/>
-    <%= text_field_tag "email" %>
-  </div>
-  <div>
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
-  </div>
-  <div><%= submit_tag "Log In" %></div>
-<% end %>
+</div>
