@@ -1,31 +1,28 @@
 <div class = "container">
-  <div class = "row" id = "search-filter-box">
-      
-      <% if current_user%>
-        <p> Hi <%= current_user.full_name%>! Search for your movie.</p>
-      <% end %> 
-
-      <%= form_tag("/movies", method: "get") do %>
-        <div><%= text_field_tag :search, params[:search], placeholder: "Title or Director"%>
-        <%= submit_tag("Search") %></div>
-        <%= select_tag(:duration, options_for_select([["Under 90 minutes", 1],["Between 90 and 120 minutes",2],["Over 120 minutes", 3]]), include_blank: true) %>
-      <% end %>
-      
-      <p>Sort by:</p>
-      <button><%= link_to "Average Rating", movies_path(sort: "averagerating") %></button>
-      <button><%= link_to "Title", movies_path(sort: "title") %></button>
-      <button><%= link_to "Newest", movies_path(sort: "newest") %></button>
-      
+  <div class = "col-md-9">
+    <% @movies.each do |movie| %> 
+        <%=render partial: 'movie', locals: {movie: movie} %>
+    <% end %>
   </div>
-</div>
+  <div class = "col-md-3">
+    <div id = "fixed-box">
+      <div id = "search-filter-box">
+        <% if current_user%>
+          <p> Hi <%= current_user.full_name%>! Search for your movie.</p>
+        <% end %> 
 
-
-<% @movies.each do |movie| %> 
-  <div class = "row">
-    <div class = "col-md-8 col-md-offset-1" id = "movie-index-box">
-      <%=render partial: 'movie', locals: {movie: movie} %>
+        <%= form_tag("/movies", method: "get") do %>
+          <div><%= text_field_tag :search, params[:search], placeholder: "Title or Director"%>
+          <%= submit_tag("Search") %></div>
+          <%= select_tag(:duration, options_for_select([["Under 90 minutes", 1],["Between 90 and 120 minutes",2],["Over 120 minutes", 3]]), include_blank: true) %>
+        <% end %>
+        
+        <p>Sort by:</p>
+        <button><%= link_to "Average Rating", movies_path(sort: "averagerating") %></button>
+        <button><%= link_to "Title", movies_path(sort: "title") %></button>
+        <button><%= link_to "Newest", movies_path(sort: "newest") %></button>      
+      </div>
     </div>
   </div>
-<% end %>
-
-
+</div>
+ 
