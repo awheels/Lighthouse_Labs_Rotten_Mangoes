@@ -9,8 +9,10 @@ class ReviewsController < ApplicationController
   def create
     @review = @movie.reviews.build(review_params)
     @review.user_id = current_user.id
-
     if @review.save
+      movie = Movie.find(params[:movie_id])
+      movie.average_rating = movie.review_average
+      movie.save
       redirect_to @movie, notice: "Review created successfully"
     else
       render :new

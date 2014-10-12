@@ -1,16 +1,4 @@
-<div class = "movie-index-box">
-  <div class = "row">
-    <div class = "col-md-2">
-      <div id = "poster-image"> <%=  image_tag movie.image_url(:thumb).to_s %>
-      <%= link_to image_tag(movie.remote_image_url), movie_path(movie) %>
-      </div>
-    </div>
-    <div class = "col-md-10">
-      <h4><%= link_to movie.title, movie_path(movie) %></h4>
-      <h6>Director <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h6>
-      <h6>Release date <%= formatted_date(movie.release_date) %></h6>
-      <p>Genre <%= movie.genre %> | Average Rating <%= movie.review_average %>/10</p>
-      <p><%= movie.description %></p>
-    </div>
-  </div>
+<div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 nopadding">
+  <%= link_to (image_tag movie.image_url.to_s, class: "image"), movie_path(movie) %>
+  <%= link_to image_tag(movie.remote_image_url), movie_path(movie) %>
 </div>

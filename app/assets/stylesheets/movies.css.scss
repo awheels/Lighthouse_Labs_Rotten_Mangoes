@@ -6,28 +6,61 @@
   width: 100% !important;
 }
 
-#search-filter-box {
-  background: #fff;
-  padding: 5px 5px 5px 5px;
-  z-index: 1;
-  margin-right:20px;
-  margin-bottom: 10px;
+.image {
+  width: 100%;
+  overflow: hidden;
+  max-height:270px;
+  padding: 2px;
 }
 
-#duration {
-  margin-top:3px;
+.image-div {
+  padding: 2px;
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+   max-height: 271px !important;
+}
+
+* {
+  font-size: 100%;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.movie-index-box .row img {
+  float:left;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.new-movie-form {
+  border-style:solid;
+  border-width:2px;
+  padding: 10px 10px 10px 10px;
+}
+
 
 #fixed-box {
-  margin-left: 30px;
-  position: fixed;
+  left: 345px;
+  top: 55px;
+  position:relative;
+}
+
+.fixed-paragraph {
+  float: left;
+  margin-bottom:0px;
+  margin-top:8px;
+  margin-right:10px;
 }
 
 .movie-index-box {
   margin-bottom:20px;
+  margin-top:12px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left:10px;
+  padding-right:10px;
 }
 
 

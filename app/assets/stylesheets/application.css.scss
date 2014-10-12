@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,6 +13,33 @@
  *
  *= require_tree .
  *= require_self
+ *= require rails_bootstrap_forms
  */
 
-@import "bootstrap"; 
+
+@import "bootstrap";
+
+.navbar-brand {
+  padding: 0px 0px !important;
+  float: none;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color:white;
+}
+
+.navbar {
+  border-bottom: 2px solid black;
+  background-color: #2D2D2D;
+
+  }
+ 
+
+.navbar-nav > li> a {
+  padding-top: 25px;
+  font-size: 16px;
+}
+
+body {
+  background-color: white;
+}

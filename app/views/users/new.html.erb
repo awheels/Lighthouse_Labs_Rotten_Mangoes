@@ -1,7 +1,7 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-4 col-md-offset-1">  
-      <h1>  Sign up</h1>
+    <div class = "col-md-4 col-md-offset-4 signup-login-box">  
+      <h2>Sign up</h2>
       <%= form_for @user do |f| %>
       <% if @user.errors.any? %>
         <div>
@@ -15,25 +15,25 @@
         <% end %>
         <div>
           <%= f.label "email" %><br>
-          <%= f.text_field "email" %>
+          <%= f.text_field "email", class: "form-control" %>
         </div>
         <div>
           <%= f.label "firstname" %><br>
-          <%= f.text_field "firstname" %>
+          <%= f.text_field "firstname", class: "form-control" %>
         </div>
         <div>
           <%= f.label "lastname" %><br>
-          <%= f.text_field "lastname" %>
+          <%= f.text_field "lastname", class: "form-control" %>
         </div>
         <div>
           <%= f.label "password" %><br>
-          <%= f.password_field "password" %>
+          <%= f.password_field "password", class: "form-control" %>
         </div>
         <div> 
           <%= f.label "password_confirmation" %><br>
-          <%= f.password_field "password_confirmation" %>
+          <%= f.password_field "password_confirmation", class: "form-control" %>
         </div>
-        <div><%= f.submit "Submit" %></div>
+        <%= f.submit "Submit", class: "btn btn-default" %>
       <% end %>
   </div>
 </div>

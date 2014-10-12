@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     @ghost_user ||= User.find(session[:ghost_user_id]) if session[:ghost_user_id]
   end
 
-  helper_method :current_user, :ghost_user, :currently_impersonating?
+  helper_method :current_user, :ghost_user
 
 
 end

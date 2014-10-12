@@ -1,17 +1,18 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-4 col-md-offset-1">
+    <div class = "col-md-4 col-md-offset-4 signup-login-box">
       <h1>Log In</h1>
-      <%= form_tag session_path do %>
+      <%= form_tag session_path do %> 
+
         <div>
           <%= label_tag "email" %><br/>
-          <%= text_field_tag "email" %>
+          <%= text_field_tag "email"%>
         </div>
         <div>
           <%= label_tag :password %><br/>
           <%= password_field_tag :password %>
         </div>
-        <div><%= submit_tag "Log In" %></div>
+        <div><%= submit_tag "Log In", class: "btn btn-default" %></div>
       <% end %>
     </div>
   </div>

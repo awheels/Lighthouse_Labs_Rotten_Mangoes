@@ -18,3 +18,30 @@ p {
 .users-table {
   margin:auto;
 }
+
+.signup-login-box {
+  border-style:solid;
+  border-width:2px;
+  padding-bottom: 10px;
+}
+
+.users-reviews:nth-child(odd) {
+  border-style: solid;
+  border-width: 1px;
+  background-color: #F0F0F0;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.users-reviews:nth-child(even) {
+  border-style: solid;
+  border-width: 1px;
+  background-color: #C7C7C7;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+}
+
+
