@@ -18,9 +18,9 @@
   <h4>List of movies reviewed by <%= @user.full_name %></h4>
     <% @user.reviews.each do |review| %>
     <div class="col-md-10 col-md-offset-1 users-reviews">
-      <p>Title: <%= link_to Movie.find(review.movie_id).title, movie_path(review.movie_id)%> | Average Review: <%= Movie.find(review.movie_id).review_average%></p>
-      <p><%= review.text %></p>
-      <br>
+        <p>Title: <%= link_to Movie.find(review.movie_id).title, movie_path(review.movie_id)%> | Average Review: <%= Movie.find(review.movie_id).review_average%></p>
+        <p><%= review.text %></p>
+        <br>
     </div>
     <% end %>
 </div>

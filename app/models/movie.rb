@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
   scope :runtime_greater_than_120_min, -> {where("runtime_in_minutes > ?", 120)}
   scope :runtime_between_90_and_120_min, -> {where(runtime_in_minutes: 90..120)}
   
-  has_many :reviews
+  has_many :reviews, dependent: :destroy 
 
   validates :title, :director, :genre, :description, :release_date, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
